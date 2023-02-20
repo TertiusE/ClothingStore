@@ -29,7 +29,7 @@ public class AddController {
 
     @GetMapping
     public String design() {
-        return "design";
+        return "add";
     }
 
     @ModelAttribute
@@ -51,6 +51,6 @@ public class AddController {
         }
         log.info("Adding item: {}", item);
         itemRepository.save(item);
-        return "redirect:/design";
+        return "redirect:/add";
     }
 }

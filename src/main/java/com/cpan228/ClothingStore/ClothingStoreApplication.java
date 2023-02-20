@@ -22,14 +22,14 @@ public class ClothingStoreApplication {
 			repository.save(Item.builder()
 			.name("Balenciaga Shoes")
 			.brandName(Brand.BALENCIAGA)
-			.year(2022)
-			.price(1000.54));
+			.itemyear(2022)
+			.price(1000.54).build());
 
 			repository.save(Item.builder()
 			.name("Adidas Joggers")
 			.brandName(Brand.ADIDAS)
-			.year(2022)
-			.price(2200));
+			.itemyear(2022)
+			.price(2200).build());
 		};
 	}
 

@@ -28,7 +28,7 @@ public class Item {
     private String name;
     private Brand brandName;
     @Min(2021)
-    private int year;
+    private int itemyear;
     @Min(1000)
     private double price;
 
