@@ -8,7 +8,44 @@
     <title>Design Form</title>
 </head>
 <body>
-    <p>Bleh</p>
-    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/add">Add Item</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/h2-console">H2 Console</a>
+              </li>
+          </ul>
+        </div>
+    </nav>
+    <div style="height: 100%;" class="d-flex justify-content-center">
+        <div style="margin:3em;flex-direction: column; border: 0.125em black solid; padding:2em" >
+            <h3>Add new designer item</h3>
+            <form method="post" th:object="${item}">
+                <div style="margin-bottom: 0.75em;">
+                    <label for="itemName">Item Name: </label>
+                    <input type="text" name="itemName" id="itemName" th:field="*{itemName}">
+                </div>
+                <label for="itemName">Brand Name: </label>
+                <select style="margin-bottom: 0.75em;" id="" th:field="*{brandName}" aria-label="Brand Name Selection">
+                    <option th:each="brand: ${brands}" th:value="${brand}" th:text="${brand.title}"></option>
+                </select>
+                <div style="margin-bottom: 0.75em;">
+                    <label for="itemYear">Release Year: </label>
+                    <input type="number" min="2021" name="itemYear" id="itemYear" th:field="*{itemYear}">
+                </div>
+                <div style="margin-bottom: 0.75em;">
+                    <label for="price">Item Price: </label>
+                    <input type="number" min="1000" name="price" id="price" th:field="*{price}">
+                </div>
+                <button type="submit" class="btn btn-primary">Add Item</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

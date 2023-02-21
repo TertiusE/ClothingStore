@@ -4,9 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
-
-import java.math.BigDecimal;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,24 +22,28 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank
-    private String name;
+    private String itemName;
     private Brand brandName;
     @Min(2021)
-    private int itemyear;
+    private int itemYear;
     @Min(1000)
     private double price;
 
     public enum Brand {
         BALENCIAGA("Balenciaga"), STONE_ISLAND("Stone Island"), DIOR("Dior"), GUCCI("Gucci"), LOUIS_VUITTON("Louis Vuitton"), KATE_SPADE("Kate Spade"), ADIDAS("Adidas"), NIKE("Nike");
 
-        private String name;
-        private Brand(String name){
-            this.name = name;
+        protected String title;
+        private Brand(String title){
+            this.title = title;
         }
 
-        public String getName(){
-            return name;
+        public String getTitle(){
+            return title;
         }
+
+        
+
+
     }
 
     

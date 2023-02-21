@@ -28,7 +28,7 @@ public class AddController {
     private ItemRepository itemRepository;
 
     @GetMapping
-    public String design() {
+    public String add() {
         return "add";
     }
 
@@ -36,7 +36,7 @@ public class AddController {
     public void brands(Model model) {
         var brands = EnumSet.allOf(Brand.class).stream().collect(Collectors.toList());
         model.addAttribute("brands",brands);
-        log.info("brands {}", brands);
+        log.info("brand {}", brands);
     }
 
     @ModelAttribute
@@ -46,11 +46,12 @@ public class AddController {
 
     @PostMapping
     public String addBrandItem(@Valid Item item, BindingResult result) {
+        log.info("Adding item: {}", item);
+
         if (result.hasErrors()){
             return "add";  
         }
-        log.info("Adding item: {}", item);
         itemRepository.save(item);
         return "redirect:/add";
-    }
+    } 
 }
