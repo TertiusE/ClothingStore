@@ -30,6 +30,7 @@
                 <div style="margin-bottom: 0.75em;">
                     <label for="itemName">Item Name: </label>
                     <input type="text" name="itemName" id="itemName" th:field="*{itemName}">
+                    <p style="color:red" th:if="${#fields.hasErrors('itemName')}">Item name can't be blank</p>
                 </div>
                 <label for="itemName">Brand Name: </label>
                 <select style="margin-bottom: 0.75em;" id="" th:field="*{brandName}" aria-label="Brand Name Selection">
