@@ -1,5 +1,7 @@
-C:\Users\terer\Coding\Java\ClothingStore\src\main\java\com\cpan228\ClothingStore\controller\AddController.java
-C:\Users\terer\Coding\Java\ClothingStore\src\main\java\com\cpan228\ClothingStore\controller\HomeController.java
-C:\Users\terer\Coding\Java\ClothingStore\src\main\java\com\cpan228\ClothingStore\repository\ItemRepository.java
-C:\Users\terer\Coding\Java\ClothingStore\src\main\java\com\cpan228\ClothingStore\model\Item.java
-C:\Users\terer\Coding\Java\ClothingStore\src\main\java\com\cpan228\ClothingStore\ClothingStoreApplication.java
+C:\Users\terer\coding\java\clothingstore\src\main\java\com\cpan228\ClothingStore\controller\AddController.java
+C:\Users\terer\coding\java\clothingstore\src\main\java\com\cpan228\ClothingStore\controller\ItemsListController.java
+C:\Users\terer\coding\java\clothingstore\src\main\java\com\cpan228\ClothingStore\controller\HomeController.java
+C:\Users\terer\coding\java\clothingstore\src\main\java\com\cpan228\ClothingStore\repository\ItemRepository.java
+C:\Users\terer\coding\java\clothingstore\src\main\java\com\cpan228\ClothingStore\repository\ItemRepositoryPaginated.java
+C:\Users\terer\coding\java\clothingstore\src\main\java\com\cpan228\ClothingStore\model\Item.java
+C:\Users\terer\coding\java\clothingstore\src\main\java\com\cpan228\ClothingStore\ClothingStoreApplication.java

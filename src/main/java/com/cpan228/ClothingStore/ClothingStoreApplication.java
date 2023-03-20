@@ -20,16 +20,22 @@ public class ClothingStoreApplication {
 	public CommandLineRunner storeLoader(ItemRepository repository) {
 		return args -> {
 			repository.save(Item.builder()
-			.itemName("Balenciaga Shoes")
-			.brandName(Brand.BALENCIAGA)
-			.itemYear(2022)
-			.price(1000.54).build());
+					.itemName("Balenciaga Shoes")
+					.brandName(Brand.BALENCIAGA)
+					.itemYear(2022)
+					.price(1000.54).build());
 
 			repository.save(Item.builder()
-			.itemName("Adidas Joggers")
-			.brandName(Brand.ADIDAS)
-			.itemYear(2022)
-			.price(2200).build());
+					.itemName("Adidas Joggers")
+					.brandName(Brand.ADIDAS)
+					.itemYear(2022)
+					.price(2200).build());
+
+			repository.save(Item.builder()
+					.itemName("Nike Shirt")
+					.brandName(Brand.NIKE)
+					.itemYear(2032)
+					.price(2500).build());
 		};
 	}
 }
