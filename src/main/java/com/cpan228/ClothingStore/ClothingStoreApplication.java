@@ -21,19 +21,19 @@ public class ClothingStoreApplication {
 		return args -> {
 			repository.save(Item.builder()
 					.itemName("Balenciaga Shoes")
-					.brandName(Brand.BALENCIAGA)
+					.brandName(Brand.BALENCIAGA.getTitle())
 					.itemYear(2022)
 					.price(1000.54).build());
 
 			repository.save(Item.builder()
 					.itemName("Adidas Joggers")
-					.brandName(Brand.ADIDAS)
+					.brandName(Brand.ADIDAS.getTitle())
 					.itemYear(2022)
 					.price(2200).build());
 
 			repository.save(Item.builder()
 					.itemName("Nike Shirt")
-					.brandName(Brand.NIKE)
+					.brandName(Brand.NIKE.getTitle())
 					.itemYear(2032)
 					.price(2500).build());
 		};

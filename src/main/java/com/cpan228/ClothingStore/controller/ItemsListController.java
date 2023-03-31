@@ -2,6 +2,7 @@ package com.cpan228.ClothingStore.controller;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.EnumSet;
 import java.util.Optional;
 
 import org.springframework.data.domain.PageRequest;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.cpan228.ClothingStore.model.Item.Brand;
+import com.cpan228.ClothingStore.model.dto.ItemSearchByNameAndYear;
 import com.cpan228.ClothingStore.repository.ItemRepository;
 import com.cpan228.ClothingStore.repository.ItemRepositoryPaginated;
 
@@ -39,6 +42,23 @@ public class ItemsListController {
         model.addAttribute("items", itemsPage);
         model.addAttribute("currentPage", itemsPage.getNumber());
         model.addAttribute("totalPages", itemsPage.getTotalPages());
+    }
+
+    @ModelAttribute
+    public void brands(Model model) {
+        var brands = EnumSet.allOf(Brand.class);
+        model.addAttribute("brands",brands);
+    }
+
+    @ModelAttribute
+    public void itemsByNameAndYear(Model model) {
+        model.addAttribute("itemsByNameAndYear", new ItemSearchByNameAndYear());
+    }
+
+    @PostMapping
+    public String searchItemsByBrandAndYear(@ModelAttribute ItemSearchByNameAndYear itemSearchByNameAndYear, Model model){
+        model.addAttribute("items", itemRepository.findByBrandNameAndItemYear(itemSearchByNameAndYear.getBrandName(), itemSearchByNameAndYear.getItemYear()));
+        return "itemslist";    
     }
 
     @GetMapping("/switchPage")

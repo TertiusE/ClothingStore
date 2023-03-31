@@ -25,7 +25,7 @@ public class Item {
     private Long id;
     @NotBlank
     private String itemName;
-    private Brand brandName;
+    private String brandName;
     @Min(2021)
     private int itemYear;
     @Min(1000)

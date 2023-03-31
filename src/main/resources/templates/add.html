@@ -9,7 +9,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div  id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <a class="nav-link" href="/">Home</a>
@@ -37,7 +37,7 @@
                 </div>
                 <label for="itemName">Brand Name: </label>
                 <select style="margin-bottom: 0.75em;" id="" th:field="*{brandName}" aria-label="Brand Name Selection">
-                    <option th:each="brand: ${brands}" th:value="${brand}" th:text="${brand.title}"></option>
+                    <option th:each="brand: ${brands}" th:value="${brand.getTitle()}" th:text="${brand.getTitle()}"></option>
                 </select>
                 <div style="margin-bottom: 0.75em;">
                     <label for="itemYear">Release Year: </label>

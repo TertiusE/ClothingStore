@@ -39,6 +39,21 @@
             </div>
         </div>
     </div>
+    <form class="mt-3" method="post" th:object="${itemsByNameAndYear}">
+        <div class="mb-3">
+            <label for="itemYear">Brand Name: </label>
+            <select style="margin-bottom: 0.75em;" id="" th:field="*{brandName}" aria-label="Brand Name Selection">
+                <option th:each="brand: ${brands}" th:value="${brand.getTitle()}" th:text="${brand.getTitle()}"></option>
+            </select>
+            <div style="margin-bottom: 0.75em;">
+                <label for="itemYear">Item Year: </label>
+                <input type="number" min="2021" name="itemYear" id="itemYear" th:field="*{itemYear}">
+            </div>
+        </div>
+        <button class="btn btn-primary mt-5">
+          Search By Brand Name and Year
+        </button>
+      </form>
     <div class="d-flex flex-column bd-highlight justify-content-center align-items-center w-75 ms-5">
         <ul class="pagination mt-5">
             <li class="page-item">

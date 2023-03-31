@@ -1,7 +1,5 @@
 package com.cpan228.ClothingStore.model.dto;
 
-import com.cpan228.ClothingStore.model.Item.Brand;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +7,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 public class ItemSearchByNameAndYear {
-    private Brand brandName;
+    private String brandName;
     private int itemYear;
 }

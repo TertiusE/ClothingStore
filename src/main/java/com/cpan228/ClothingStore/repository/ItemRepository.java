@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ItemRepository extends CrudRepository<Item, Long> {
-    List<Item> findByBrandNameAndItemYear(Brand brandName, int itemYear);
+    List<Item> findByBrandNameAndItemYear(String brandName, int itemYear);
 }
