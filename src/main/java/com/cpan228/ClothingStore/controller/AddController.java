@@ -34,7 +34,7 @@ public class AddController {
 
     @ModelAttribute
     public void brands(Model model) {
-        var brands = EnumSet.allOf(Brand.class).stream().collect(Collectors.toList());
+        var brands = EnumSet.allOf(Brand.class);
         model.addAttribute("brands",brands);
         log.info("brand {}", brands);
     }
