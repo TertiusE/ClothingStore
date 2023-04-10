@@ -4,10 +4,13 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.cpan228.ClothingStore.model.Item;
+import com.cpan228.ClothingStore.model.User;
 import com.cpan228.ClothingStore.model.Item.Brand;
 import com.cpan228.ClothingStore.repository.ItemRepository;
+import com.cpan228.ClothingStore.repository.UserRepository;
 
 @SpringBootApplication
 public class ClothingStoreApplication {
@@ -17,8 +20,11 @@ public class ClothingStoreApplication {
 	}
 
 	@Bean
-	public CommandLineRunner storeLoader(ItemRepository repository) {
+	public CommandLineRunner storeLoader(ItemRepository repository, UserRepository users, PasswordEncoder encoder) {
 		return args -> {
+			users.save(new User(null, "User",encoder.encode("One"),"user", "user", "ROLE_USER"));
+			users.save(new User(null, "Admin",encoder.encode("One"),"admin", "admin", "ROLE_USER"));
+
 			repository.save(Item.builder()
 					.itemName("Balenciaga Shoes")
 					.brandName(Brand.BALENCIAGA.getTitle())
