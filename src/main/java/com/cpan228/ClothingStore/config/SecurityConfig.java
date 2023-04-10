@@ -24,7 +24,6 @@ public class SecurityConfig {
         this.myUserDetailsService = myUserDetailsService;
     }
 
-    
     @Bean
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -32,23 +31,22 @@ public class SecurityConfig {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        
         http
-            .csrf(csrf -> csrf.ignoringRequestMatchers("/h2-console/**"))
-            .authorizeHttpRequests()
-            .requestMatchers("/h2-console/**").permitAll()
-            .requestMatchers("/design", "/fighterlist")
-            .hasRole("USER")
-            .anyRequest().permitAll()
+            .csrf()
+            .disable()
+            .httpBasic()
             .and()
-            .formLogin(login -> login
-                    .loginPage("/login")
-                    .defaultSuccessUrl("/design", true))
-            .logout(logout -> logout
-                    .logoutSuccessUrl("/"))
-            .headers(headers -> headers
-                    .frameOptions());
+            .authorizeHttpRequests()
+            .requestMatchers("/h2-console/**","login").permitAll()
+            .requestMatchers("/add", "/itemslist").authenticated()
+            .requestMatchers("/register").permitAll()
+            .and()
+            .formLogin()
+            .loginPage("/login")
+            .defaultSuccessUrl("/itemslist",true)
+            .permitAll();
         return http.build();
     }
-
 
 }

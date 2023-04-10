@@ -6,6 +6,7 @@ import java.util.EnumSet;
 import java.util.Optional;
 
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,6 +32,7 @@ public class ItemsListController {
         this.itemRepositoryPaginated = itemRepositoryPaginated; 
     }
 
+    @PreAuthorize("hasRole('USER')")
     @GetMapping
     public String itemslist(Model model){
         return "itemslist";
@@ -55,6 +57,7 @@ public class ItemsListController {
         model.addAttribute("itemsByNameAndYear", new ItemSearchByNameAndYear());
     }
 
+    @PreAuthorize("hasRole('USER')")
     @PostMapping
     public String searchItemsByBrandAndYear(@ModelAttribute ItemSearchByNameAndYear itemSearchByNameAndYear, Model model){
         model.addAttribute("items", itemRepository.findByBrandNameAndItemYear(itemSearchByNameAndYear.getBrandName(), itemSearchByNameAndYear.getItemYear()));

@@ -22,8 +22,8 @@ public class ClothingStoreApplication {
 	@Bean
 	public CommandLineRunner storeLoader(ItemRepository repository, UserRepository users, PasswordEncoder encoder) {
 		return args -> {
-			users.save(new User(null, "User",encoder.encode("One"),"user", "user", "ROLE_USER"));
-			users.save(new User(null, "Admin",encoder.encode("One"),"admin", "admin", "ROLE_USER"));
+			users.save(new User(null, "User","One","user", encoder.encode("user"), "ROLE_USER"));
+			users.save(new User(null, "Admin","One","admin", encoder.encode("admin"), "ROLE_USER,ROLE_ADMIN"));
 
 			repository.save(Item.builder()
 					.itemName("Balenciaga Shoes")

@@ -4,6 +4,7 @@ import java.util.EnumSet;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -27,6 +28,7 @@ public class AddController {
     @Autowired
     private ItemRepository itemRepository;
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
     public String add() {
         return "add";
@@ -43,7 +45,8 @@ public class AddController {
     public Item item() {
         return Item.builder().build();
     }
-
+    
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public String addBrandItem(@Valid Item item, BindingResult result) {
         log.info("Adding item: {}", item);
