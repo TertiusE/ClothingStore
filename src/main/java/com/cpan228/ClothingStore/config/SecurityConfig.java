@@ -38,14 +38,16 @@ public class SecurityConfig {
             .httpBasic()
             .and()
             .authorizeHttpRequests()
-            .requestMatchers("/h2-console/**","login").permitAll()
+            .requestMatchers("/h2-console/**","login","/register","/logout").permitAll()
             .requestMatchers("/","/add", "/itemslist").authenticated()
-            .requestMatchers("/register").permitAll()
             .and()
             .formLogin()
             .loginPage("/login")
             .defaultSuccessUrl("/itemslist",true)
-            .permitAll();
+            .permitAll()
+            .and()
+            .logout()
+            .logoutSuccessUrl("/login");
         return http.build();
     }
 

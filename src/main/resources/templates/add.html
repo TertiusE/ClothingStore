@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title>Design Form</title>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div  id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/add">Add Item</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/itemslist">Items List</a>
-          </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/h2-console">H2 Console</a>
-            </li>
-          </ul>
+        <div id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/add">Add Item</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/itemslist">Items List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/h2-console">H2 Console</a>
+                </li>
+                <li class="nav-item active" style="align-self: flex-end;">
+                    <a class="nav-link" href="/logout">Log Out</a>
+                </li>
+            </ul>
         </div>
     </nav>
     <div style="height: 100%;" class="d-flex justify-content-center">
-        <div style="margin:3em;flex-direction: column; border: 0.125em black solid; padding:2em" >
+        <div style="margin:3em;flex-direction: column; border: 0.125em black solid; padding:2em">
             <h3>Add new designer item</h3>
             <form method="post" th:object="${item}">
                 <div style="margin-bottom: 0.75em;">
@@ -37,7 +43,8 @@
                 </div>
                 <label for="itemName">Brand Name: </label>
                 <select style="margin-bottom: 0.75em;" id="" th:field="*{brandName}" aria-label="Brand Name Selection">
-                    <option th:each="brand: ${brands}" th:value="${brand.getTitle()}" th:text="${brand.getTitle()}"></option>
+                    <option th:each="brand: ${brands}" th:value="${brand.getTitle()}" th:text="${brand.getTitle()}">
+                    </option>
                 </select>
                 <div style="margin-bottom: 0.75em;">
                     <label for="itemYear">Release Year: </label>
@@ -52,4 +59,5 @@
         </div>
     </div>
 </body>
+
 </html>
