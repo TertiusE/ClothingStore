@@ -22,7 +22,7 @@ public class ManageController {
         this.itemRepository = itemRepository;
     }
 
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
     public String manage(Model model){
         return "manage";
@@ -33,7 +33,7 @@ public class ManageController {
         var itemsPage = itemRepository.findAll();
         model.addAttribute("items", itemsPage);
     }
-    
+
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/deleteAnItem")
     public String processItemDeletion(@RequestParam("itemId") String itemId) {
