@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cpan228.ClothingStore.controller.RegistrationController;
-import com.cpan228.ClothingStore.model.User;
 import com.cpan228.ClothingStore.model.form.RegistrationForm;
 import com.cpan228.ClothingStore.repository.UserRepository;
 

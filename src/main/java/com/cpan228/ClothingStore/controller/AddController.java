@@ -28,7 +28,7 @@ public class AddController {
     @Autowired
     private ItemRepository itemRepository;
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN','WAREHOUSE')")
     @GetMapping
     public String add() {
         return "add";

@@ -39,7 +39,7 @@ public class SecurityConfig {
             .and()
             .authorizeHttpRequests()
             .requestMatchers("/h2-console/**","login","/register","/logout").permitAll()
-            .requestMatchers("/","/add", "/itemslist").authenticated()
+            .requestMatchers("/","/add", "/itemslist","/manage/**").authenticated()
             .and()
             .formLogin()
             .loginPage("/login")

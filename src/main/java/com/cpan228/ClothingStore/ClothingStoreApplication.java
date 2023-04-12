@@ -24,6 +24,7 @@ public class ClothingStoreApplication {
 		return args -> {
 			users.save(new User(null, "User","One","user", encoder.encode("user"), "ROLE_USER"));
 			users.save(new User(null, "Admin","One","admin", encoder.encode("admin"), "ROLE_USER,ROLE_ADMIN"));
+			users.save(new User(null, "Warehouse","One","warehouse", encoder.encode("warehouse"), "ROLE_USER,ROLE_WAREHOUSE"));
 
 			repository.save(Item.builder()
 					.itemName("Balenciaga Shoes")
