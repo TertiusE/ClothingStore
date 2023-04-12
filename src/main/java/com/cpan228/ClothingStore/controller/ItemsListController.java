@@ -64,6 +64,7 @@ public class ItemsListController {
         return "itemslist";    
     }
 
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("/switchPage")
     public String switchPage(Model model, @RequestParam("pageToSwitch") Optional<Integer> pageToSwitch) {
         var page = pageToSwitch.orElse(0);
